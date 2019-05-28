@@ -1,8 +1,12 @@
 <div class="row">
-<div class="col-lg-5 col-md-5">
-  <app-recipe-item></app-recipe-item>
-</div>
-<div class="col-lg-7 col-md-7">
-  <app-recipe-list></app-recipe-list>
-</div>
+    <div class="col-lg-5 col-md-5">
+        <app-recipe-list (sendItemList)='reciveInListData($event)' ></app-recipe-list>
+    
+    </div>
+    <div class="col-lg-7 col-md-7">
+        <app-recipe-detail *ngIf="reciveInListValue ;else infoList" [recipe]='reciveInListValue' ></app-recipe-detail>
+        <ng-template #infoList>
+            <p>Please select recipe</p>
+        </ng-template>
+    </div>
 </div>

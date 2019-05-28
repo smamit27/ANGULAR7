@@ -1,3 +1,31 @@
-<p>
-  shopping-edit works!
-</p>
+<form >
+  <div class="form-group col-sm-5">
+    <label for="name">Name:</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        id="name" 
+        #nameInput
+        placeholder="Enter name" 
+      >
+  </div>
+  <div class="form-group col-sm-5">
+    <label for="amount">Amount:</label>
+    <input 
+      type="number"
+      class="form-control"
+      id="amount" 
+      #amountInput 
+      placeholder="Enter amount" 
+     >
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+   <button type="button" class="btn btn-success" style="margin-right: 10px;" (click)= "onAddItem()">Add</button>
+  <button type="button" class="btn btn-danger" style="margin-right: 10px;" (click)= "onDelteItem()">Delte</button>
+  <button type="button" class="btn btn-primary" style="margin-right: 10px;"(click)= "onClearItem()">Clear</button>
+    </div>
+  </div>
+
+
+</form>
