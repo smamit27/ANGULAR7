@@ -1,9 +1,11 @@
 import { Recipe } from './recipe.model';
-import { EventEmitter } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
-
+import { ShoppingService } from '../shopping-list/shopping.service';
+@Injectable()
 export class RecipeService { 
     reciveSelectList = new EventEmitter<Recipe>(); 
+    constructor(private shoppingService :ShoppingService) {}
     private recipes: Recipe[] = [
         new Recipe('Banana recipe','banana recipe list',
         'https://cdn.aarp.net/content/dam/aarp/travel/travel_tips/2018/07/1140-toasted-ravioli.imgcache.rev43a7d07e8218c031324a26e1b373a932.web.500.285.jpg',
@@ -20,5 +22,8 @@ export class RecipeService {
       ];
       getRecipe() {
           return this.recipes.slice();
+      }
+      addIngedientToShoppingList(ingredient: Ingredient[]) {
+        this.shoppingService.addIngredient(ingredient);
       }
 }
