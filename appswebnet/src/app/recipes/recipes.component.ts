@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from './recipe.model';
+import { RecipeService } from './recipe.service';
 
 @Component({
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
-  styleUrls: ['./recipes.component.scss']
+  styleUrls: ['./recipes.component.scss'],
+  providers: [RecipeService]
 })
 export class RecipesComponent implements OnInit {
   reciveInListValue:Recipe;
 
-  constructor() { }
+  constructor(private recipeService : RecipeService) { }
 
   ngOnInit() {
+    this.recipeService.reciveSelectList.subscribe((recipe:Recipe) =>{
+      this.reciveInListValue = recipe;
+    })
   }
-  reciveInListData(event) {
-    if(event !== undefined && event !== ''){
-      this.reciveInListValue = event;
-    }
  
-  }
 }
