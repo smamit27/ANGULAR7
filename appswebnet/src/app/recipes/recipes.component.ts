@@ -9,7 +9,7 @@ import { RecipeService } from './recipe.service';
   providers: [RecipeService]
 })
 export class RecipesComponent implements OnInit {
-  reciveInListValue:Recipe;
+  reciveInListValue: Recipe;
 
   constructor(private recipeService : RecipeService) { }
 
@@ -18,5 +18,5 @@ export class RecipesComponent implements OnInit {
       this.reciveInListValue = recipe;
     })
   }
- 
+
 }
